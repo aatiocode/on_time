@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:on_time/date_timeline.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,10 +29,30 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      onGenerateRoute: (RouteSettings settings) {
+        switch (settings.name) {
+          case "/timeline/date":
+            return MaterialPageRoute(builder: (_) => DateTimelineScreen());
+          case "/timeline":
+            return MaterialPageRoute(builder: (_) => DateTimelineScreen());
+          default:
+            return MaterialPageRoute(
+              builder: (_) {
+                return const Scaffold(
+                  body: Center(
+                    child: Text('Page not found'),
+                  ),
+                );
+              },
+            );
+        }
+      },
+      home: const MyHomePage(title: 'One Time Man'),
+      // home: const TimelineScreen(),
+      // home: const DateTimelineScreen(),
     );
   }
 }
@@ -57,16 +78,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  // void _incrementCounter() {
+  //   setState(() {
+  //     // This call to setState tells the Flutter framework that something has
+  //     // changed in this State, which causes it to rerun the build method below
+  //     // so that the display can reflect the updated values. If we changed
+  //     // _counter without calling setState(), then the build method would not be
+  //     // called again, and so nothing would appear to happen.
+  //     _counter++;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -115,11 +136,63 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      bottomNavigationBar: globalFooter(),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+  Widget globalFooter() {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            buttonFooter(label: "Daftar", isBorder: true),
+            const SizedBox(height: 10),
+            buttonFooter(label: "Masuk"),
+            SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buttonFooter({required String label, bool isBorder = false}) {
+    return SizedBox(
+      height: 45,
+      child: ElevatedButton(
+        style: isBorder
+            ? OutlinedButton.styleFrom(
+            backgroundColor: Colors.white,
+            side: BorderSide(width: 1, color: Colors.green),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(6)),
+            elevation: 0)
+            : ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(6))),
+        child: Text(
+          label,
+          style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+              color: isBorder ? Colors.black : Colors.white),
+        ),
+        onPressed: () {
+          if (label == 'Daftar') {
+            Navigator.pushNamed(context, '/timeline');
+          } else {
+            Navigator.pushNamed(context, '/timeline/date');
+          }
+        },
+      ),
     );
   }
 }
