@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
         useMaterial3: true,
       ),
       onGenerateRoute: (RouteSettings settings) {
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
             );
         }
       },
-      home: const MyHomePage(title: 'One Time Man'),
+      home: const MyHomePage(title: 'On Time'),
       // home: const TimelineScreen(),
       // home: const DateTimelineScreen(),
     );
@@ -76,7 +76,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  // int _counter = 0;
 
   // void _incrementCounter() {
   //   setState(() {
@@ -126,13 +126,18 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            // Image.asset("assets/home.avif"),
+            // const Text(
+            //   'You have pushed the button this many times:',
+            // ),
+            CircleAvatar(
+              radius: 200, // Adjust radius as needed
+              backgroundImage: AssetImage('assets/home.avif'), // Your image path
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            // Text(
+            //   '$_counter',
+            //   style: Theme.of(context).textTheme.headlineMedium,
+            // ),
           ],
         ),
       ),
@@ -169,12 +174,12 @@ class _MyHomePageState extends State<MyHomePage> {
         style: isBorder
             ? OutlinedButton.styleFrom(
             backgroundColor: Colors.white,
-            side: BorderSide(width: 1, color: Colors.green),
+            side: BorderSide(width: 1, color: Colors.lightGreen),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(6)),
             elevation: 0)
             : ElevatedButton.styleFrom(
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.lightGreen,
             elevation: 0,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(6))),

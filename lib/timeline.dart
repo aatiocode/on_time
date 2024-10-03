@@ -23,10 +23,10 @@ class _TimelineScreenState extends State<TimelineScreen> {
         ),
       theme: TimelineThemeData(
         connectorTheme: ConnectorThemeData(
-          color: Colors.green
+          color: Colors.lightGreen
         ),
         indicatorTheme: IndicatorThemeData(
-            color: Colors.green
+            color: Colors.lightGreen
         )
       ),
     );
