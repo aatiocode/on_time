@@ -1,9 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-class PegadaianPreferences {
+class Preferences {
   SharedPreferences preferences;
 
-  PegadaianPreferences({required this.preferences});
+  Preferences({required this.preferences});
 
   String IS_LOGGED_IN = "isLogged";
   String TOKEN = "token";

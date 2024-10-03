@@ -25,7 +25,7 @@ Dio configureDio(String baseUrl) {
 
   dio.interceptors.add(LogInterceptor());
 
-  String? token = getIt.get<PegadaianPreferences>().getUserToken();
+  String? token = getIt.get<Preferences>().getUserToken();
   dio.options.headers['Content-Type'] = 'application/json';
   if (token != null) {
     dio.options.headers["Authorization"] = "Bearer $token";
