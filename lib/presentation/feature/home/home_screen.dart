@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen>
               icon: Icons.edit_calendar,
               titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
               onPress: () {
-                Navigator.pushNamed(context, Routes.SCHEDULE);
+                Navigator.pushNamed(context, Routes.SCHEDULE_ADD);
               },
             ),
             // Floating action menu item
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen>
               icon: Icons.note_add,
               titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
               onPress: () {
-                Navigator.pushNamed(context, Routes.NOTE);
+                Navigator.pushNamed(context, Routes.NOTE_ADD);
               },
             ),
           ],
