@@ -14,7 +14,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
   Widget build(BuildContext context) {
     return FixedTimeline.tileBuilder(
         builder: TimelineTileBuilder.fromStyle(
-          contentsAlign: ContentsAlign.alternating,
+          contentsAlign: ContentsAlign.basic,
           contentsBuilder: (context, index) =>
           Card( child: Padding(
             padding: const EdgeInsets.all(24.0),
@@ -28,10 +28,10 @@ class _TimelineScreenState extends State<TimelineScreen> {
         ),
       theme: TimelineThemeData(
         connectorTheme: ConnectorThemeData(
-          color: Colors.lightGreen
+          color: Color(0xFF7E64FF)
         ),
         indicatorTheme: IndicatorThemeData(
-            color: Colors.lightGreen
+            color: Color(0xFF7E64FF)
         )
       ),
     );

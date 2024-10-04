@@ -31,7 +31,7 @@ class _EasyInfiniteDateTimeLineExampleState
       children: [
         EasyInfiniteDateTimeLine(
           locale: "id_ID",
-          activeColor: Colors.lightGreen,
+          activeColor: Color(0xFF7E64FF),
           selectionMode: const SelectionMode.autoCenter(),
           controller: _controller,
           firstDate: DateTime(currentYear),

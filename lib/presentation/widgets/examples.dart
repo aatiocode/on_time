@@ -1,1 +1,1 @@
-export 'infinite_date_time_line_example.dart';
+export 'date_time_line.dart';

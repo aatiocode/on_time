@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:on_time/presentation/feature/note/note_screen.dart';
 import 'package:on_time/presentation/feature/setting/setting_screen.dart';
 import 'package:on_time/presentation/widgets/custom_bottom_nav.dart';
-import 'package:on_time/presentation/widgets/default_background.dart';
+
+import '../schedule/schedule_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     menu = [
-      (Icons.calendar_month, "Schedule", homeBody()),
+      (Icons.calendar_month, "Schedule", ScheduleScreen()),
       (Icons.note, "Note", NoteScreen()),
       (Icons.settings, "Setting", SettingScreen()),
     ];
@@ -49,17 +50,5 @@ class _HomeScreenState extends State<HomeScreen> {
         child: const Icon(Icons.add, color: Colors.white),
       ),
     );
-  }
-
-  Widget homeBody() {
-    return Container(
-        decoration: DefaultBackground().backgroundGradient(context),
-        child: SafeArea(
-          child: ListView(
-            children: const [
-              SizedBox(height: 20),
-            ],
-          ),
-        ));
   }
 }
