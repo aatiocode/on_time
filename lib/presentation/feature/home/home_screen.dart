@@ -2,6 +2,7 @@ import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:on_time/presentation/feature/note/note_screen.dart';
 import 'package:on_time/presentation/widgets/custom_bottom_nav.dart';
+import 'package:on_time/utils/routes.dart';
 
 import '../schedule/schedule_screen.dart';
 
@@ -65,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen>
               icon: Icons.edit_calendar,
               titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
               onPress: () {
-                _animationController.reverse();
+                Navigator.pushNamed(context, Routes.SCHEDULE);
               },
             ),
             // Floating action menu item
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen>
               icon: Icons.note_add,
               titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
               onPress: () {
-                _animationController.reverse();
+                Navigator.pushNamed(context, Routes.NOTE);
               },
             ),
           ],

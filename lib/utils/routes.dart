@@ -3,4 +3,6 @@
 class Routes {
   static const ONBOARDING = '/onboarding';
   static const HOME = '/home';
+  static const SCHEDULE = '/schedule';
+  static const NOTE = '/note';
 }
