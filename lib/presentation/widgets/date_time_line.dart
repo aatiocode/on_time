@@ -31,7 +31,7 @@ class _EasyInfiniteDateTimeLineExampleState
       children: [
         EasyInfiniteDateTimeLine(
           locale: "id_ID",
-          activeColor: Color(0xFF7E64FF),
+          activeColor: Colors.white,
           selectionMode: const SelectionMode.autoCenter(),
           controller: _controller,
           firstDate: DateTime(currentYear),
@@ -42,6 +42,24 @@ class _EasyInfiniteDateTimeLineExampleState
               _focusDate = selectedDate;
             });
           },
+          dayProps: const EasyDayProps(
+              inactiveDayStyle: DayStyle(
+                decoration: BoxDecoration(
+                  color: Color(0xFF7E64FF)
+                ),
+                dayStrStyle: TextStyle(color: Colors.white),
+                dayNumStyle: TextStyle(color: Colors.white),
+                monthStrStyle: TextStyle(color: Colors.white),
+              ),
+            todayStyle: DayStyle(
+              decoration: BoxDecoration(
+                  color: Color(0xFF7E64FF)
+              ),
+              dayStrStyle: TextStyle(color: Colors.white),
+              dayNumStyle: TextStyle(color: Colors.white),
+              monthStrStyle: TextStyle(color: Colors.white),
+            )
+          ),
         ),
         const SizedBox(
           height: 16,

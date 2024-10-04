@@ -22,7 +22,11 @@ class _TimelineScreenState extends State<TimelineScreen> {
           )),
           oppositeContentsBuilder: (context, index) => Padding(
             padding: const EdgeInsets.all(24.0),
-            child: Text('06:06\n16:16'),
+            child: Text('06:06\n16:16',
+              style: TextStyle(
+                  color: Colors.white
+              ),
+            ),
           ),
           itemCount: 13,
         ),
