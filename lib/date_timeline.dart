@@ -1,5 +1,5 @@
-import 'package:on_time/examples/examples.dart';
 import 'package:flutter/material.dart';
+import 'package:on_time/presentation/widgets/infinite_date_time_line_example.dart';
 import 'package:on_time/timeline.dart';
 
 class DateTimelineScreen extends StatefulWidget {
