@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:on_time/presentation/feature/splash/splash_screen.dart';
+import 'package:on_time/presentation/feature/note/note_screen.dart';
+import 'package:on_time/presentation/feature/setting/setting_screen.dart';
 import 'package:on_time/presentation/widgets/custom_bottom_nav.dart';
 import 'package:on_time/presentation/widgets/default_background.dart';
 
@@ -27,8 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     menu = [
       (Icons.calendar_month, "Schedule", homeBody()),
-      (Icons.note, "Note", NextScreen()),
-      (Icons.settings, "Setting", NextScreen()),
+      (Icons.note, "Note", NoteScreen()),
+      (Icons.settings, "Setting", SettingScreen()),
     ];
   }
 
@@ -39,13 +39,14 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: CustomBottomNav(
         menu: menu,
         onTap: onItemTapped,
+        currentIndex: selectedIndex,
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF7E64FF),
+        backgroundColor: const Color(0xFF7E64FF),
         onPressed: () {
           // Navigator.pushNamed(context, Routes.ATTENDANCE);
         },
-        child: Icon(Icons.add, color: Colors.white),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }
@@ -55,30 +56,10 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: DefaultBackground().backgroundGradient(context),
         child: SafeArea(
           child: ListView(
-            children: [
-              const SizedBox(height: 20),
-              // TopBar(),
-              // GoldMenu(),
-              // MenuGrid(),
+            children: const [
+              SizedBox(height: 20),
             ],
           ),
         ));
-  }
-}
-
-class NextScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Next Screen'),
-      ),
-      body: Center(
-        child: Text(
-          'This is the next screen!',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
-    );
   }
 }

@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:on_time/helpers/colors_custom.dart';
 
 class CustomBottomNav extends StatelessWidget {
-  const CustomBottomNav({super.key, required this.menu, required this.onTap});
+  const CustomBottomNav(
+      {super.key,
+      required this.menu,
+      required this.onTap,
+      required this.currentIndex});
 
   final List<(IconData icon, String label, Widget page)> menu;
+  final int currentIndex;
   final Function(int) onTap;
 
   @override
@@ -19,20 +24,18 @@ class CustomBottomNav extends StatelessWidget {
         ),
       ),
       child: BottomNavigationBar(
+        currentIndex: currentIndex,
         onTap: onTap,
         type: BottomNavigationBarType.fixed,
         selectedFontSize: 14,
         unselectedFontSize: 12,
-        backgroundColor: Color(0xFF7E64FF),
+        backgroundColor: const Color(0xFF7E64FF),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
         elevation: 5,
         items: menu.map((item) {
           return BottomNavigationBarItem(
             icon: Icon(item.$1, color: Colors.white),
-            // SvgPicture.asset(
-            //   item.$1,
-            //   width: 20,
-            //   height: 20,
-            // ),
             label: item.$2,
           );
         }).toList(),
