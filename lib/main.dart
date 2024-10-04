@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:on_time/helpers/colors_custom.dart';
 import 'package:on_time/injection.dart';
+import 'package:on_time/presentation/feature/home/home_screen.dart';
 import 'package:on_time/presentation/feature/onboarding/onboarding_screen.dart';
 import 'package:on_time/presentation/feature/splash/splash_screen.dart';
 import 'package:on_time/utils/route_observer.dart';
@@ -49,8 +50,8 @@ class _MainAppState extends State<MainApp> {
         switch (settings.name) {
           case Routes.ONBOARDING:
             return MaterialPageRoute(builder: (_) => OnboardingScreen());
-          // case Routes.HOME:
-          //   return MaterialPageRoute(builder: (_) => HomeScreen());
+          case Routes.HOME:
+            return MaterialPageRoute(builder: (_) => HomeScreen());
           default:
             return MaterialPageRoute(
               builder: (_) {
