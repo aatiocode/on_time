@@ -1,7 +1,6 @@
 import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:on_time/presentation/feature/note/note_screen.dart';
-import 'package:on_time/presentation/feature/setting/setting_screen.dart';
 import 'package:on_time/presentation/widgets/custom_bottom_nav.dart';
 
 import '../schedule/schedule_screen.dart';
@@ -32,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen>
     menu = [
       (Icons.calendar_month, "Schedule", ScheduleScreen()),
       (Icons.note, "Note", NoteScreen()),
-      (Icons.settings, "Setting", SettingScreen()),
     ];
 
     _animationController = AnimationController(
