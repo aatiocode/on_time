@@ -1,26 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:on_time/helpers/colors_custom.dart';
 import 'package:on_time/injection.dart';
 import 'package:on_time/presentation/feature/onboarding/onboarding_screen.dart';
 import 'package:on_time/presentation/feature/splash/splash_screen.dart';
 import 'package:on_time/utils/route_observer.dart';
 import 'package:on_time/utils/routes.dart';
-// import 'package:pegadaian_digital/helpers/colors_custom.dart';
-// import 'package:pegadaian_digital/injection.dart';
-// import 'package:pegadaian_digital/presentation/feature/attendance/attendance_screen.dart';
-// import 'package:pegadaian_digital/presentation/feature/attendance/bloc/attendance_bloc.dart';
-// import 'package:pegadaian_digital/presentation/feature/history/bloc/history_bloc.dart';
-// import 'package:pegadaian_digital/presentation/feature/home/bloc/home_bloc.dart';
-// import 'package:pegadaian_digital/presentation/feature/home/home_screen.dart';
-// import 'package:pegadaian_digital/presentation/feature/login/bloc/login_bloc.dart';
-// import 'package:pegadaian_digital/presentation/feature/login/login_screen.dart';
-// import 'package:pegadaian_digital/presentation/feature/onboarding/onboarding_screen.dart';
-// import 'package:pegadaian_digital/presentation/feature/register/bloc/register_bloc.dart';
-// import 'package:pegadaian_digital/presentation/feature/register/register_screen.dart';
-// import 'package:pegadaian_digital/presentation/feature/splash/splash_screen.dart';
-// import 'package:pegadaian_digital/utils/route_observer.dart';
-// import 'package:pegadaian_digital/utils/routes.dart';
 
 import 'injection.dart' as di;
 
