@@ -11,12 +11,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        iconTheme: IconThemeData(color: Color(0xFF7E64FF)),
-        title: Text('Date Timeline'),
-      ),
       body: const SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
