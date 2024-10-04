@@ -5,6 +5,7 @@ import 'package:on_time/presentation/feature/home/home_screen.dart';
 import 'package:on_time/presentation/feature/note/note_add_screen.dart';
 import 'package:on_time/presentation/feature/note/note_screen.dart';
 import 'package:on_time/presentation/feature/onboarding/onboarding_screen.dart';
+import 'package:on_time/presentation/feature/schedule/schedule_add_screen.dart';
 import 'package:on_time/presentation/feature/schedule/schedule_screen.dart';
 import 'package:on_time/presentation/feature/splash/splash_screen.dart';
 import 'package:on_time/utils/route_observer.dart';
@@ -56,7 +57,7 @@ class _MainAppState extends State<MainApp> {
           case Routes.HOME:
             return MaterialPageRoute(builder: (_) => HomeScreen());
           case Routes.SCHEDULE_ADD:
-            // return MaterialPageRoute(builder: (_) => ScheduleAddScreen());
+            return MaterialPageRoute(builder: (_) => ScheduleAddScreen());
           case Routes.NOTE_ADD:
             return MaterialPageRoute(builder: (_) => NoteAddScreen());
           default:
