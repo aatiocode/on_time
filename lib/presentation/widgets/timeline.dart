@@ -32,7 +32,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
         ),
         indicatorTheme: IndicatorThemeData(
             color: Color(0xFF7E64FF)
-        )
+        ),
+        nodePosition: 0.2
       ),
     );
   }
