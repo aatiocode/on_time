@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:on_time/presentation/widgets/default_background.dart';
+import 'package:on_time/utils/routes.dart';
 
 class OnboardingScreen extends StatelessWidget {
   @override
@@ -29,12 +30,7 @@ class OnboardingScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Aksi ketika tombol ditekan
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          NextScreen(), // Ganti dengan screen berikutnya
-                    ),
-                  );
+                  Navigator.pushNamed(context, Routes.HOME);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
@@ -56,23 +52,6 @@ class OnboardingScreen extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class NextScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Next Screen'),
-      ),
-      body: Center(
-        child: Text(
-          'This is the next screen!',
-          style: TextStyle(fontSize: 24),
         ),
       ),
     );

@@ -1,6 +1,6 @@
-import 'package:on_time/examples/examples.dart';
+import 'package:on_time/presentation/widgets/examples.dart';
 import 'package:flutter/material.dart';
-import 'package:on_time/timeline.dart';
+import 'package:on_time/presentation/widgets/timeline.dart';
 
 class DateTimelineScreen extends StatefulWidget {
   const DateTimelineScreen({super.key});
