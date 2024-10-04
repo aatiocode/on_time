@@ -1,43 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:on_time/date_timeline.dart';
+import 'package:on_time/helpers/colors_custom.dart';
+import 'package:on_time/injection.dart';
+import 'package:on_time/presentation/feature/onboarding/onboarding_screen.dart';
+import 'package:on_time/presentation/feature/splash/splash_screen.dart';
+import 'package:on_time/utils/route_observer.dart';
+import 'package:on_time/utils/routes.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'injection.dart' as di;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  di.init();
+  await getIt.allReady();
+
+  runApp(const MainApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MainApp extends StatefulWidget {
+  const MainApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'on.time',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
+        fontFamily: 'OpenSans',
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          centerTitle: false,
+          iconTheme: IconThemeData(color: ColorsCustom.primary),
+          titleTextStyle: TextStyle(
+              color: ColorsCustom.black,
+              fontSize: 18,
+              fontWeight: FontWeight.bold),
+        ),
         useMaterial3: true,
       ),
+      navigatorObservers: [routeObserver],
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
-          case "/timeline/date":
-            return MaterialPageRoute(builder: (_) => DateTimelineScreen());
-          case "/timeline":
-            return MaterialPageRoute(builder: (_) => DateTimelineScreen());
+          case Routes.ONBOARDING:
+            return MaterialPageRoute(builder: (_) => OnboardingScreen());
+          // case Routes.HOME:
+          //   return MaterialPageRoute(builder: (_) => HomeScreen());
           default:
             return MaterialPageRoute(
               builder: (_) {
@@ -50,154 +63,7 @@ class MyApp extends StatelessWidget {
             );
         }
       },
-      home: const MyHomePage(title: 'On Time'),
-      // home: const TimelineScreen(),
-      // home: const DateTimelineScreen(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     // This call to setState tells the Flutter framework that something has
-  //     // changed in this State, which causes it to rerun the build method below
-  //     // so that the display can reflect the updated values. If we changed
-  //     // _counter without calling setState(), then the build method would not be
-  //     // called again, and so nothing would appear to happen.
-  //     _counter++;
-  //   });
-  // }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            // Image.asset("assets/home.avif"),
-            // const Text(
-            //   'You have pushed the button this many times:',
-            // ),
-            CircleAvatar(
-              radius: 200, // Adjust radius as needed
-              backgroundImage: AssetImage('assets/home.avif'), // Your image path
-            ),
-            // Text(
-            //   '$_counter',
-            //   style: Theme.of(context).textTheme.headlineMedium,
-            // ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: globalFooter(),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: const Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-  Widget globalFooter() {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            buttonFooter(label: "Daftar", isBorder: true),
-            const SizedBox(height: 10),
-            buttonFooter(label: "Masuk"),
-            SizedBox(height: 20),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget buttonFooter({required String label, bool isBorder = false}) {
-    return SizedBox(
-      height: 45,
-      child: ElevatedButton(
-        style: isBorder
-            ? OutlinedButton.styleFrom(
-            backgroundColor: Colors.white,
-            side: BorderSide(width: 1, color: Colors.lightGreen),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(6)),
-            elevation: 0)
-            : ElevatedButton.styleFrom(
-            backgroundColor: Colors.lightGreen,
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(6))),
-        child: Text(
-          label,
-          style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
-              color: isBorder ? Colors.black : Colors.white),
-        ),
-        onPressed: () {
-          if (label == 'Daftar') {
-            Navigator.pushNamed(context, '/timeline');
-          } else {
-            Navigator.pushNamed(context, '/timeline/date');
-          }
-        },
-      ),
+      home: const SplashScreen(),
     );
   }
 }
