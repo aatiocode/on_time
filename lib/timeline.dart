@@ -15,9 +15,14 @@ class _TimelineScreenState extends State<TimelineScreen> {
     return FixedTimeline.tileBuilder(
         builder: TimelineTileBuilder.fromStyle(
           contentsAlign: ContentsAlign.alternating,
-          contentsBuilder: (context, index) => Padding(
+          contentsBuilder: (context, index) =>
+          Card( child: Padding(
             padding: const EdgeInsets.all(24.0),
             child: Text('Timeline Event $index'),
+          )),
+          oppositeContentsBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Text('06:06\n16:16'),
           ),
           itemCount: 13,
         ),

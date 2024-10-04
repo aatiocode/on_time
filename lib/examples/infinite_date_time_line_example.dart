@@ -36,7 +36,7 @@ class _EasyInfiniteDateTimeLineExampleState
           controller: _controller,
           firstDate: DateTime(currentYear),
           focusDate: _focusDate,
-          lastDate: now,
+          lastDate: DateTime(currentYear, 12, 31),
           onDateChange: (selectedDate) {
             setState(() {
               _focusDate = selectedDate;
